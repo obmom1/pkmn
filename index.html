@@ -10,34 +10,65 @@
       font-family: 'Roboto', Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f9;
+      background: linear-gradient(to bottom, #f4f4f9, #eaeaea);
       color: #333;
       line-height: 1.6;
     }
     header {
-      background: linear-gradient(135deg, #ef5350, #d32f2f);
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.e-accounts.co.uk/wp-content/uploads/2025/01/shutterstock_2406190181-1024x591.jpg') no-repeat center center/cover;
       color: white;
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 6rem 1rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-bottom: 5px solid #c62828;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3.5rem;
       margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: fadeInDown 1s ease-in-out;
     }
     header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      font-weight: 300;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 1s ease-in-out;
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       justify-content: center;
       padding: 1rem 0;
       margin: 0;
       background-color: #ef5350;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     nav ul li a {
       color: white;
@@ -49,21 +80,35 @@
     nav ul li a:hover {
       background-color: #d32f2f;
       border-radius: 4px;
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
     section {
       padding: 3rem 1.5rem;
       max-width: 900px;
       margin: auto;
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
     h2 {
       color: #ef5350;
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
+      text-align: center;
     }
     form {
       display: flex;
@@ -75,10 +120,11 @@
       font-size: 1rem;
       border: 1px solid #ddd;
       border-radius: 6px;
-      transition: border-color 0.3s ease;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
     input:focus, textarea:focus {
       border-color: #ef5350;
+      box-shadow: 0 0 5px rgba(239, 83, 80, 0.5);
       outline: none;
     }
     button {
@@ -86,7 +132,7 @@
       color: white;
       border: none;
       padding: 0.75rem 1.5rem;
-      font-size: 1rem;
+      font-size: 1.2rem;
       border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
@@ -97,23 +143,26 @@
     }
     footer {
       text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
+      padding: 2rem;
+      font-size: 1rem;
       background-color: #333;
       color: white;
       margin-top: 2rem;
+      border-top: 5px solid #c62828;
     }
     footer a {
       color: #ef5350;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
     footer a:hover {
+      color: #d32f2f;
       text-decoration: underline;
     }
     @media (max-width: 600px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
       header p {
         font-size: 1rem;
@@ -143,7 +192,7 @@
     </ul>
   </nav>
 
-  <section id="intro">
+  <section id="intro" class="card">
     <h2>What We Do</h2>
     <p>We buy all kinds of Pokémon cards — common, rare, vintage, and modern. Whether it's a few extras or your whole collection, we'll give you a fair offer.</p>
   </section>
@@ -185,7 +234,7 @@
     </script>
   </section>
 
-  <section id="pricing">
+  <section id="pricing" class="card">
     <h2>How We Price</h2>
     <p>We base our offers on current TCGPlayer market values, card condition, and demand. We aim to be transparent and fair in every deal.</p>
   </section>
