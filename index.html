@@ -217,9 +217,6 @@
           const response = await fetch(form.action, {
             method: form.method,
             body: formData,
-            headers: {
-              Accept: 'application/json',
-            },
           });
           if (response.ok) {
             document.getElementById('confirmation').style.display = 'block';
