@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokémon Card Buyer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #ef5350;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      color: #ef5350;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #ef5350;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pokémon Card Buyer</h1>
+    <p>We buy your cards fast, fair, and hassle-free!</p>
+  </header>
+
+  <section id="intro">
+    <h2>What We Do</h2>
+    <p>We buy all kinds of Pokémon cards — common, rare, vintage, and modern. Whether it's a few extras or your whole collection, we'll give you a fair offer.</p>
+  </section>
+
+  <section id="sell">
+    <h2>Sell Your Cards</h2>
+    <form action="https://formspree.io/f/yourcode" method="POST" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="cardList" rows="4" placeholder="List the cards you're selling (name, set, condition)..."></textarea>
+      <input type="file" name="photos" accept="image/*" multiple />
+      <button type="submit">Send My Cards</button>
+    </form>
+  </section>
+
+  <section id="pricing">
+    <h2>How We Price</h2>
+    <p>We base our offers on current TCGPlayer market values, card condition, and demand. We aim to be transparent and fair in every deal.</p>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <p><strong>Q: Do you buy bulk cards?</strong><br/>A: Yes! We'll make an offer for any amount, large or small.</p>
+    <p><strong>Q: How do I get paid?</strong><br/>A: After reviewing your submission, we’ll send payment via PayPal, Venmo, or mailed check — your choice.</p>
+  </section>
+
+  <footer>
+    <p>Contact: youremail@example.com</p>
+    <p>&copy; 2025 Pokémon Card Buyer</p>
+  </footer>
+</body>
+</html>
