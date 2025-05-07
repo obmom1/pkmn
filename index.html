@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sell your Pokémon cards fast, fair, and hassle-free. Get a fair offer for your collection today!" />
   <title>208 Pokemon</title>
   <style>
     body {
@@ -17,6 +18,24 @@
       color: white;
       text-align: center;
       padding: 2rem 1rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      background-color: #ef5350;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+    }
+    nav ul li a:hover {
+      background-color: #d32f2f;
+      border-radius: 4px;
     }
     section {
       padding: 2rem;
@@ -46,11 +65,22 @@
       border-radius: 4px;
       cursor: pointer;
     }
+    button:hover {
+      background-color: #d32f2f;
+    }
     footer {
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
       background-color: #eee;
+    }
+    @media (max-width: 600px) {
+      header, section, footer {
+        padding: 1rem;
+      }
+      form {
+        gap: 0.5rem;
+      }
     }
   </style>
 </head>
@@ -60,6 +90,15 @@
     <p>We buy your cards fast, fair, and hassle-free!</p>
   </header>
 
+  <nav>
+    <ul>
+      <li><a href="#intro">What We Do</a></li>
+      <li><a href="#sell">Sell Your Cards</a></li>
+      <li><a href="#pricing">How We Price</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </nav>
+
   <section id="intro">
     <h2>What We Do</h2>
     <p>We buy all kinds of Pokémon cards — common, rare, vintage, and modern. Whether it's a few extras or your whole collection, we'll give you a fair offer.</p>
@@ -67,13 +106,22 @@
 
   <section id="sell">
     <h2>Sell Your Cards</h2>
-    <form action="https://formspree.io/f/yourcode" method="POST" enctype="multipart/form-data">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
+    <form action="https://formspree.io/f/myzwjwwg" method="POST" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
+      <input type="email" name="email" placeholder="Your Email" required aria-required="true" />
       <textarea name="cardList" rows="4" placeholder="List the cards you're selling (name, set, condition)..."></textarea>
       <input type="file" name="photos" accept="image/*" multiple />
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <button type="submit">Send My Cards</button>
     </form>
+    <p id="confirmation" style="display:none; color: green;">Thank you! Your submission has been received.</p>
+    <script>
+      const form = document.querySelector('form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        document.getElementById('confirmation').style.display = 'block';
+      });
+    </script>
   </section>
 
   <section id="pricing">
@@ -85,11 +133,30 @@
     <h2>FAQ</h2>
     <p><strong>Q: Do you buy bulk cards?</strong><br/>A: Yes! We'll make an offer for any amount, large or small.</p>
     <p><strong>Q: How do I get paid?</strong><br/>A: After reviewing your submission, we’ll send payment via PayPal, Venmo, or mailed check — your choice.</p>
+    <script>
+      document.querySelectorAll('#faq p strong').forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+        });
+      });
+    </script>
   </section>
 
   <footer>
     <p>Contact: youremail@example.com</p>
+    <p>Follow us: 
+      <a href="https://www.instagram.com/208pkmn/" target="_blank">Instagram</a> | 
+    </p>
     <p>&copy; 2025 208 Pokemon</p>
   </footer>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'YOUR_TRACKING_ID');
+  </script>
 </body>
 </html>
