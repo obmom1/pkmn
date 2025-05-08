@@ -28,34 +28,12 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      animation: fadeInDown 1s ease-in-out;
     }
     header p {
       font-size: 1.5rem;
       margin-top: 1rem;
       font-weight: 300;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-      animation: fadeInUp 1s ease-in-out;
-    }
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
     nav ul {
       list-style: none;
@@ -65,7 +43,6 @@
       padding: 1rem 0;
       margin: 0;
       background-color: #ef5350;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -90,7 +67,6 @@
       border-radius: 12px;
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
-      animation: fadeIn 1s ease-in-out;
     }
     .card {
       background: white;
@@ -98,11 +74,6 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 2rem;
       margin-bottom: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
     h2 {
       color: #ef5350;
@@ -178,6 +149,7 @@
   </style>
 </head>
 <body>
+
   <header>
     <h1>208 Pokémon</h1>
     <p>We buy your cards fast, fair, and hassle-free!</p>
@@ -199,12 +171,12 @@
 
   <section id="sell">
     <h2>Sell Your Cards</h2>
-    <form action="https://formspree.io/f/myzwjwwg" method="POST" enctype="multipart/form-data">
-      <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
-      <input type="email" name="email" placeholder="Your Email" required aria-required="true" />
+    <form action="https://usebasin.com/f/07ef4273b034" method="POST" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="cardList" rows="4" placeholder="List the cards you're selling (name, set, condition)..."></textarea>
       <input type="file" name="photos" accept="image/*" multiple />
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="text" name="_gotcha" style="display:none">
       <button type="submit">Send My Cards</button>
     </form>
     <p id="confirmation" style="display:none; color: green;">Thank you! Your submission has been received.</p>
@@ -215,8 +187,8 @@
         const formData = new FormData(form);
         try {
           const response = await fetch(form.action, {
-            method: form.method,
-            body: formData,
+            method: 'POST',
+            body: formData
           });
           if (response.ok) {
             document.getElementById('confirmation').style.display = 'block';
@@ -225,7 +197,7 @@
             alert('There was an issue submitting your form. Please try again.');
           }
         } catch (error) {
-          alert('An error occurred. Please check your internet connection and try again.');
+          alert('Error. Please check your internet connection and try again.');
         }
       });
     </script>
@@ -236,25 +208,15 @@
     <p>We base our offers on current TCGPlayer market values, card condition, and demand. We aim to be transparent and fair in every deal.</p>
   </section>
 
-  <section id="faq">
+  <section id="faq" class="card">
     <h2>FAQ</h2>
     <p><strong>Q: Do you buy bulk cards?</strong><br/>A: Yes! We'll make an offer for any amount, large or small.</p>
     <p><strong>Q: How do I get paid?</strong><br/>A: After reviewing your submission, we’ll send payment via PayPal, Venmo, or mailed check — your choice.</p>
-    <script>
-      document.querySelectorAll('#faq p strong').forEach(question => {
-        question.addEventListener('click', () => {
-          const answer = question.nextElementSibling;
-          answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
-        });
-      });
-    </script>
   </section>
 
   <footer>
     <p>Contact: 208pkmn@gmail.com</p>
-    <p>Follow us: 
-      <a href="https://www.instagram.com/208pkmn/" target="_blank">Instagram</a>  
-    </p>
+    <p>Follow us: <a href="https://www.instagram.com/208pkmn/" target="_blank">Instagram</a></p>
     <p>&copy; 2025, 208 Pokémon</p>
   </footer>
 
